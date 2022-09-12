@@ -1,0 +1,27 @@
+project:
+  type: website
+
+website:
+  title: "Youngseok Yoon"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: research.qmd
+        text: Research
+      - href: assignment.qmd
+        text: Assignments
+      - href: Public CV_Youngseok_Yoon_AUG2022.pdf
+        text: CV
+     
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+
+editor: visual
+
