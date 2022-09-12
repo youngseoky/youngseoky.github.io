@@ -1,4 +1,0 @@
----
-title: "epps6356"
-editor: visual
----
