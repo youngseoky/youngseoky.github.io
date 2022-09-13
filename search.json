@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About me"
+    "text": "About"
   },
   {
     "objectID": "assignment01.html",
@@ -18,13 +18,13 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "### Research Interest\n  * Human Resource Management and Labor Economics\n  * Data Analytics\n\n### Contact me\n[youngseok.yoon(at)utdallas.edu](mailto:youngseok.yoon(at)utdallas.edu)\n[Website](https://youngseoky.github.io)"
+    "text": "I am a doctoral student studying public administration at University of Texas at Dallas.\nResearch Interests\n\nPublic Management and Labor Economics\nSurvey Experiment\nData Analytics\n\nContact\nyoungseok.yoon@utdallas.edu\nhttps://youngseoky.github.io"
   },
   {
     "objectID": "research.html",
     "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "About my research"
+    "text": "Research"
   }
 ]
