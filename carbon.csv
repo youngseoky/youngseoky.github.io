@@ -1,0 +1,52 @@
+﻿State,PerCapitaEmission,CarbonIntensity,Region,Division
+Alabama,21.6484824,433.6877967,West,Pacific
+Alaska,46.6749868,643.1302381,South,East South Central
+Arizona,12.69021192,239.3804717,South,West South Central
+Arkansas,21.53995446,500.0932844,West,Mountain
+California,9.08170732,140.3000683,West,Pacific
+Colorado,15.93041796,263.3012874,West,Mountain
+Connecticut,10.27247945,130.4638329,Northeast,New England
+Delaware,13.90949351,280.6089125,South,South Atlantic
+District of Columbia,3.965414748,71.15235067,South,South Atlantic
+Florida,10.8669635,249.9445152,South,South Atlantic
+Georgia,12.84032941,270.4030691,South,South Atlantic
+Hawaii,14.4883805,248.6401666,West,Pacific
+Idaho,11.22745496,308.3813199,Midwest,West North Central
+Illinois,16.06002369,240.6170757,West,Mountain
+Indiana,26.16371498,545.7848281,Midwest,East North Central
+Iowa,24.46082742,431.3889871,Midwest,East North Central
+Kansas,20.75271891,353.537877,Midwest,West North Central
+Kentucky,25.80092322,633.6520819,South,East South Central
+Louisiana,41.84041477,850.5514117,South,West South Central
+Maine,10.71798293,245.864901,Northeast,New England
+Maryland,9.392485257,186.9162792,South,South Atlantic
+Massachusetts,9.184274771,156.9354642,Northeast,New England
+Michigan,15.94791993,325.6243733,Midwest,East North Central
+Minnesota,16.32795924,276.7454608,Midwest,West North Central
+Mississippi,21.00221223,553.6814817,Midwest,West North Central
+Missouri,19.05304788,418.2740471,South,East South Central
+Montana,30.1732665,536.9786636,West,Mountain
+Nebraska,26.10971742,406.5031125,South,South Atlantic
+Nevada,13.50455936,269.5990012,Midwest,West North Central
+New Hampshire,10.23791396,148.5816541,Midwest,West North Central
+New Jersey,11.34090489,188.821973,Northeast,New England
+New Mexico,23.30575289,443.2005618,Northeast,Middle Atlantic
+New York,8.681667043,116.2762129,West,Mountain
+North Carolina,11.67548837,253.4438218,West,Mountain
+North Dakota,74.80744595,820.0184402,Northeast,Middle Atlantic
+Ohio,16.81513121,356.0428952,Midwest,East North Central
+Oklahoma,22.93307245,422.5512828,South,West South Central
+Oregon,9.923903875,173.0000055,West,Pacific
+Pennsylvania,17.09007125,256.3863528,Northeast,Middle Atlantic
+Rhode Island,9.797013413,196.6071591,Northeast,New England
+South Carolina,13.46374189,297.614654,South,South Atlantic
+South Dakota,18.01349353,328.8629388,Midwest,West North Central
+Tennessee,13.5046412,317.9646945,South,East South Central
+Texas,23.57030979,390.434812,South,West South Central
+Utah,19.20175689,342.4211431,West,Mountain
+Vermont,9.648061887,150.368897,South,South Atlantic
+Virginia,12.47715554,248.8983948,Northeast,New England
+Washington,11.05456821,149.623476,West,Pacific
+West Virginia,47.60222629,874.2919835,Midwest,East North Central
+Wisconsin,16.27852765,328.720896,South,South Atlantic
+Wyoming,101.8907738,1034.828472,West,Mountain
