@@ -1,0 +1,14 @@
+---
+title: "Assignment03"
+---
+
+1. Runanscombe01.R (in classGitHub)
+
+  a. Compare the regression models
+
+  b. Compare different ways to create the plots(e.g. changing colors, line types, plot characters)
+
+2. Can you finetune the charts without using other packages (consult RGraphics by Murrell)
+
+3. How about with ggplot2?(use tidyverse package)
+

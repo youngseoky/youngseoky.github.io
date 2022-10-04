@@ -1,0 +1,31 @@
+---
+title: "Home"
+---
+
+|                                                 |
+|:-----------------------------------------------:|
+| ![](Youngseok_Yoon_VISA_Photo.jpg){width="200"} |
+
++------------------------------------------------------------------------------------------+
+| Welcome!                                                                                 |
+|                                                                                          |
+| I am a doctoral student studying public administration at University of Texas at Dallas. |
++------------------------------------------------------------------------------------------+
+
++---------------------------+
+| ### Research Interests    |
+|                           |
+| -   Public Management     |
+|                           |
+| -   Experimental Research |
+|                           |
+| -   Data Analytics        |
++---------------------------+
+
++------------------------------+
+| ### Contact                  |
+|                              |
+| youngseok.yoon\@utdallas.edu |
+|                              |
+| https://youngseoky.github.io |
++------------------------------+

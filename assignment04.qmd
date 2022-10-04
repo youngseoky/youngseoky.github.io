@@ -1,0 +1,67 @@
+---
+title: "Assignment04"
+---
+
+## 1. Variable Width Column Chart
+
+```{r}
+# Data Visualization
+# Assignment 4-1
+
+# Set Column Names
+df <- data.frame(x = c("Texas", "Florida", "NewYork",
+     "California"), width = c(25, 50, 75, 100), height = c(100,
+     75, 50, 25))
+
+df$w <- cumsum(df$width)
+df$wm <- df$w - df$width
+df$wt <- with(df, wm + (w - wm)/2)
+
+library(ggplot2)
+p <- ggplot(df, aes(ymin = 0))
+p1 <- p + geom_rect(aes(xmin = wm, xmax = w,
+     ymax = height, fill = x))
+
+p2 <- p1 + geom_text(aes(x = wt, y = height *
+     0.5, label = x))
+
+p2 + ggtitle("Carbon Emission and Gas Price by State") + xlab("Gas Price") + ylab("Carbon Emission")
+```
+
+The figure above shows the relationship between carbon emissions and gas prices by state. California has the highest gas price and the least carbon emission. On the other hand, Texas has the least gas price while the highest carbon emission. The figure illustrates that the higher the gas price, the lower the carbon emissions.
+
+## 2. Table with Embedded Charts
+
+```{r}
+# Data Visualization
+# Assignment 4-2
+
+# Creating Table with Embedded Charts
+carbon <- read.csv("carbon.csv", header=TRUE)
+head(carbon)
+
+library(Hmisc)
+library(tidyverse)
+library(ggplot2)
+
+# Calucating Mean
+mean(carbon$PerCapitaEmission)
+```
+
+```{r}
+# Creating Dummy Variable
+carbon$PerCapitaEmission_dummy <- ifelse(carbon$PerCapitaEmission>=20.20489, 1, 0)
+
+# Creating Ordinal Variable
+carbon$CarbonIntensity_ordinal <- cut2(carbon$CarbonIntensity, m=10)
+
+# 
+table(carbon$PerCapitaEmission_dummy, carbon$CarbonIntensity_ordinal)
+```
+
+```{r}
+carbon_df <- data.frame(carbon)
+
+# Code below does not work... 
+## p <- ggplot2(carbon_df,aes(CarbonIntensity_ordinal,PerCapitaEmission,fill=as.factor(Division)),size=5)+geom_bar(position="dodge",stat="identity")+facet_wrap(~CarbonIntensity_ordinad,nrow=4)
+```
