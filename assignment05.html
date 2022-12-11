@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Youngseok Yoon - Assignment04</title>
+<title>Youngseok Yoon - Assignment05</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -221,8 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#variable-width-column-chart" id="toc-variable-width-column-chart" class="nav-link active" data-scroll-target="#variable-width-column-chart">1. Variable Width Column Chart</a></li>
-  <li><a href="#table-with-embedded-charts" id="toc-table-with-embedded-charts" class="nav-link" data-scroll-target="#table-with-embedded-charts">2. Table with Embedded Charts</a></li>
+  <li><a href="#more-on-creating-charts" id="toc-more-on-creating-charts" class="nav-link active" data-scroll-target="#more-on-creating-charts">1. More on creating charts</a></li>
   </ul>
 </nav>
     </div>
@@ -231,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignment04</h1>
+<h1 class="title">Assignment05</h1>
 </div>
 
 
@@ -245,119 +244,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="variable-width-column-chart" class="level2">
-<h2 class="anchored" data-anchor-id="variable-width-column-chart">1. Variable Width Column Chart</h2>
+<section id="more-on-creating-charts" class="level2">
+<h2 class="anchored" data-anchor-id="more-on-creating-charts">1. More on creating charts</h2>
+<p><strong>Bar Chart / Column Chart / Circular Area Chart</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Visualization</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assignment 4-1</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())                          <span class="co"># Clear environment</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Column Names</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"Texas"</span>, <span class="st">"Florida"</span>, <span class="st">"NewYork"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">"California"</span>), <span class="at">width =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">100</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     <span class="dv">75</span>, <span class="dv">50</span>, <span class="dv">25</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>w <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(df<span class="sc">$</span>width)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>wm <span class="ot">&lt;-</span> df<span class="sc">$</span>w <span class="sc">-</span> df<span class="sc">$</span>width</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">with</span>(df, wm <span class="sc">+</span> (w <span class="sc">-</span> wm)<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fmsb)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data01 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Year=</span><span class="fu">c</span>(<span class="st">"1y"</span>, <span class="st">"1y"</span>, <span class="st">"2y"</span>, <span class="st">"2y"</span>, <span class="st">"3y"</span>, <span class="st">"3y"</span>, <span class="st">"4y"</span>, <span class="st">"4y"</span>, <span class="st">"5y"</span>, <span class="st">"5y"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">policy=</span><span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">effect=</span><span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">12</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">ymin =</span> <span class="dv">0</span>))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_rect</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> wm, <span class="at">xmax =</span> w,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">ymax =</span> height, <span class="at">fill =</span> x))</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> height <span class="sc">*</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>     <span class="fl">0.5</span>, <span class="at">label =</span> x))</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>p2 <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Carbon Emission and Gas Price by State"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Gas Price"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Carbon Emission"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data01, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> effect, <span class="at">fill =</span> policy)) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#f7001d"</span>, <span class="st">"#0099f7"</span>)) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="assignment04_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment05_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data01, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> effect, <span class="at">fill =</span> policy)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#f7001d"</span>, <span class="st">"#0099f7"</span>)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> effect), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.5</span>), <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"#ffffff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assignment05_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
 </div>
-<p>The figure above shows the relationship between carbon emissions and gas prices by state. California has the highest gas price and the least carbon emission. On the other hand, Texas has the least gas price while the highest carbon emission. The figure illustrates that the higher the gas price, the lower the carbon emissions.</p>
-</section>
-<section id="table-with-embedded-charts" class="level2">
-<h2 class="anchored" data-anchor-id="table-with-embedded-charts">2. Table with Embedded Charts</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data Visualization</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assignment 4-2</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Table with Embedded Charts</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>carbon <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"carbon.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(carbon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       State PerCapitaEmission CarbonIntensity Region           Division
-1    Alabama         21.648482        433.6878   West            Pacific
-2     Alaska         46.674987        643.1302  South East South Central
-3    Arizona         12.690212        239.3805  South West South Central
-4   Arkansas         21.539954        500.0933   West           Mountain
-5 California          9.081707        140.3001   West            Pacific
-6   Colorado         15.930418        263.3013   West           Mountain</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data02 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">matrix</span>( <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">12</span>) , <span class="at">ncol=</span><span class="dv">5</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data02) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"1year"</span>, <span class="st">"2year"</span>, <span class="st">"3year"</span>, <span class="st">"4year"</span>, <span class="st">"5year"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(data02) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data02 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">rep</span>(<span class="dv">20</span>,<span class="dv">5</span>) , <span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">5</span>) , data02)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>colors_border<span class="ot">=</span><span class="fu">c</span>( <span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>), <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.9</span>) , <span class="fu">rgb</span>(<span class="fl">0.7</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.9</span>) )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>colors_in<span class="ot">=</span><span class="fu">c</span>( <span class="fu">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.4</span>), <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.4</span>) , <span class="fu">rgb</span>(<span class="fl">0.7</span>,<span class="fl">0.5</span>,<span class="fl">0.1</span>,<span class="fl">0.4</span>) )</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">radarchart</span>( data02 , <span class="at">axistype=</span><span class="dv">1</span>, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"Comparison of the effect between A and B"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">pcol=</span>colors_border , <span class="at">pfcol=</span>colors_in , <span class="at">plwd=</span><span class="dv">4</span> , <span class="at">plty=</span><span class="dv">1</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">cglcol=</span><span class="st">"grey"</span>, <span class="at">cglty=</span><span class="dv">1</span>, <span class="at">axislabcol=</span><span class="st">"grey"</span>, <span class="at">caxislabels=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">5</span>), <span class="at">cglwd=</span><span class="fl">0.8</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">vlcex=</span><span class="fl">0.8</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="assignment05_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: lattice</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: survival</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: Formula</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'Hmisc'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    format.pval, units</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages
-───────────────────────────────────────
-tidyverse 1.3.2 ──</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
-✔ purrr   0.3.5      
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter()    masks stats::filter()
-✖ dplyr::lag()       masks stats::lag()
-✖ dplyr::src()       masks Hmisc::src()
-✖ dplyr::summarize() masks Hmisc::summarize()</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calucating Mean</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(carbon<span class="sc">$</span>PerCapitaEmission)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20.29298</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Dummy Variable</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>carbon<span class="sc">$</span>PerCapitaEmission_dummy <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(carbon<span class="sc">$</span>PerCapitaEmission<span class="sc">&gt;=</span><span class="fl">20.20489</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating Ordinal Variable</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>carbon<span class="sc">$</span>CarbonIntensity_ordinal <span class="ot">&lt;-</span> <span class="fu">cut2</span>(carbon<span class="sc">$</span>CarbonIntensity, <span class="at">m=</span><span class="dv">10</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(carbon<span class="sc">$</span>PerCapitaEmission_dummy, carbon<span class="sc">$</span>CarbonIntensity_ordinal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   
-    [ 71.2, 197) [196.6, 270) [269.6, 342) [342.4, 500) [500.1,1035]
-  0           11           10           10            3            0
-  1            0            0            0            7           10</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>carbon_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(carbon)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Code below does not work... </span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## p &lt;- ggplot2(carbon_df,aes(CarbonIntensity_ordinal,PerCapitaEmission,fill=as.factor(Division)),size=5)+geom_bar(position="dodge",stat="identity")+facet_wrap(~CarbonIntensity_ordinad,nrow=4)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
