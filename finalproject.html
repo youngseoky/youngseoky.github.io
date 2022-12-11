@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Youngseok Yoon - Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="site_libs/leaflet-binding-2.1.1/leaflet.js"></script>
+<script src="site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="site_libs/leaflet-providers-plugin-2.1.1/leaflet-providers-plugin.js"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Youngseok Yoon</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Public_CV_Youngseok_Yoon_Sep22.pdf">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://youngseoky.github.io/youngseoky.blog/">Blog</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-assignments" role="button" data-bs-toggle="dropdown" aria-expanded="false">Assignments</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-assignments">    
+        <li>
+    <a class="dropdown-item" href="./finalproject.html">
+ <span class="dropdown-text">Final Project</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment01.html">
+ <span class="dropdown-text">Assignment01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment02.html">
+ <span class="dropdown-text">Assignment02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment03.html">
+ <span class="dropdown-text">Assignment03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment04.html">
+ <span class="dropdown-text">Assignment04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment05.html">
+ <span class="dropdown-text">Assignment05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment06.html">
+ <span class="dropdown-text">Assignment06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment07.html">
+ <span class="dropdown-text">Assignment07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment08.html">
+ <span class="dropdown-text">Assignment08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment09.html">
+ <span class="dropdown-text">Assignment09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./assignment10.html">
+ <span class="dropdown-text">Assignment10</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Final Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Final Project: Mapping Toxic Chemical Emission in Seoul, Korea</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EPPS 6356 - Data Visualization</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Pyung Kim et al.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Data Setting</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"C:/Users/yoond/Documents/EPPS6356F22DataVisualization/youngseoky.github.io/Archive/toxic.rdata"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)    <span class="co"># install.packages("sf") </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.9.3, GDAL 3.5.2, PROJ 8.2.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Read Seoul grid data (shp file)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"C:/Users/yoond/Documents/EPPS6356F22DataVisualization/youngseoky.github.io/Archive/sigun_grid/seoul.shp"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `seoul' from data source 
+  `C:\Users\yoond\Documents\EPPS6356F22DataVisualization\youngseoky.github.io\Archive\sigun_grid\seoul.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 694 features and 2 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 126.7645 ymin: 37.42899 xmax: 127.1835 ymax: 37.70146
+Geodetic CRS:  GCS_unknown</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>emission <span class="ot">&lt;-</span><span class="fu">st_join</span>(emission, grid, <span class="at">join =</span> st_intersects)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Calculate average emission by grid in Seuol, South Korea </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>kde_high <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(emission<span class="sc">$</span>py, <span class="at">by=</span><span class="fu">list</span>(emission<span class="sc">$</span>ID), mean)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(kde_high) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ID"</span>, <span class="st">"avg_emission"</span>)   <span class="co"># Change column names</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Merge GRID and Average Emission</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>kde_high <span class="ot">&lt;-</span> <span class="fu">merge</span>(grid, kde_high,  <span class="at">by=</span><span class="st">"ID"</span>)   <span class="co"># Merge by ID</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># install.packages("ggplot2")</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)   <span class="co"># install.packages("dplyr")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Emission map by grid in Seoul</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Without Fill</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>kde_high <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> )) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>kde_high <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> avg_emission)) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">#################################################################</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Change "sf" to "sf"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">## sf is dataframe. so, it is easy to calculate.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## sp is shape, which is easy to create maps</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp) <span class="co"># install.packages("sp")</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>kde_high_sp <span class="ot">&lt;-</span> <span class="fu">as</span>(<span class="fu">st_geometry</span>(kde_high), <span class="st">"Spatial"</span>)    <span class="co"># sf =&gt; sp</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Set corners to draw maps</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">coordinates</span>(kde_high_sp)[,<span class="dv">1</span>]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">coordinates</span>(kde_high_sp)[,<span class="dv">2</span>] </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">&lt;-</span> <span class="fu">bbox</span>(kde_high_sp)[<span class="dv">1</span>,<span class="dv">1</span>] <span class="sc">-</span> (<span class="fu">bbox</span>(kde_high_sp)[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">*</span><span class="fl">0.0001</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>l2 <span class="ot">&lt;-</span> <span class="fu">bbox</span>(kde_high_sp)[<span class="dv">1</span>,<span class="dv">2</span>] <span class="sc">+</span> (<span class="fu">bbox</span>(kde_high_sp)[<span class="dv">1</span>,<span class="dv">2</span>]<span class="sc">*</span><span class="fl">0.0001</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>l3 <span class="ot">&lt;-</span> <span class="fu">bbox</span>(kde_high_sp)[<span class="dv">2</span>,<span class="dv">1</span>] <span class="sc">-</span> (<span class="fu">bbox</span>(kde_high_sp)[<span class="dv">2</span>,<span class="dv">1</span>]<span class="sc">*</span><span class="fl">0.0001</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>l4 <span class="ot">&lt;-</span> <span class="fu">bbox</span>(kde_high_sp)[<span class="dv">2</span>,<span class="dv">2</span>] <span class="sc">+</span> (<span class="fu">bbox</span>(kde_high_sp)[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">*</span><span class="fl">0.0001</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Draw windows</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spatstat)  <span class="co"># install.packages("spatstat")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: spatstat.data</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: spatstat.geom</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>spatstat.geom 3.0-3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: spatstat.random</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>spatstat.random 3.0-1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: spatstat.explore</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: nlme</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'nlme'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    collapse</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>spatstat.explore 3.0-5</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: spatstat.model</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: rpart</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>spatstat.model 3.0-2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: spatstat.linnet</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>spatstat.linnet 3.0-2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+spatstat 3.0-2 
+For an introduction to spatstat, type 'beginner' </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Window <span class="ot">&lt;-</span> <span class="fu">owin</span>(<span class="at">xrange=</span><span class="fu">c</span>(l1,l2), <span class="at">yrange=</span><span class="fu">c</span>(l3,l4)) <span class="co"># Create window</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Window)         <span class="co"># Check Boundaries</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">c</span>(<span class="st">"kde_high_sp"</span>, <span class="st">"emission"</span>, <span class="st">"l1"</span>, <span class="st">"l2"</span>, <span class="st">"l3"</span>, <span class="st">"l4"</span>)) <span class="co"># Clean variables</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 9. Draw density Graph</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ppp</span>(x, y, <span class="at">window=</span>Window) <span class="co"># Creates an object of class "ppp" representing a point pattern dataset in the two-dimensional plane.</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>Density <span class="ot">&lt;-</span> <span class="fu">density.ppp</span>(p, <span class="at">weights=</span>kde_high<span class="sc">$</span>avg_emission, <span class="co"># Compute a kernel smoothed intensity function from a point pattern.</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sigma =</span> <span class="fu">bw.diggle</span>(p), <span class="co"># The smoothing bandwidth</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">kernel =</span> <span class="st">'gaussian'</span>)  </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Density, <span class="at">main=</span><span class="st">"KDE of Emission (with noise)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"Window"</span>,<span class="st">"p"</span>)) <span class="co"># Clean variables</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="do">## In statistics, kernel density estimation (KDE) is the application of kernel smoothing for probability density estimation, </span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="do">## i.e., a non-parametric method to estimate the probability density function of a random variable based on kernels as weights. </span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="do">## KDE answers a fundamental data smoothing problem where inferences about the population are made, based on a finite data sample. </span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="do">## In some fields such as signal processing and econometrics it is also termed the Parzen???Rosenblatt window method, </span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="do">## after Emanuel Parzen and Murray Rosenblatt, who are usually credited with independently creating it in its current form.</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="do">## One of the famous applications of kernel density estimation is in estimating the class-conditional marginal densities of data when using a naive Bayes classifier,</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="do">## which can improve its prediction accuracy.</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. Raster Map (below explanation on KDE came from Wikipedia)</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>Density[Density <span class="sc">&lt;</span> <span class="fu">quantile</span>(Density)[<span class="dv">4</span>] <span class="sc">+</span> (<span class="fu">quantile</span>(Density)[<span class="dv">4</span>]<span class="sc">*</span><span class="fl">0.1</span>)] <span class="ot">&lt;-</span> <span class="cn">NA</span>   <span class="co"># Erase Noise</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(raster)      <span class="co">#  install.packages("raster")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'raster'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:nlme':
+
+    getData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    select</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rworldmap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>### Welcome to rworldmap ###</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>For a short introduction type :      vignette('rworldmap')</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>raster_high <span class="ot">&lt;-</span> <span class="fu">raster</span>(Density)  <span class="co"># Change by raster</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster_high)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster_high, <span class="at">col =</span> colorRamps<span class="sc">::</span><span class="fu">matlab.like</span>(<span class="at">n=</span><span class="dv">12</span>),  <span class="at">main=</span><span class="st">"KDE of Emission (w/o noise)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 11. Map grooming</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Load Seoul shp file</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>bnd <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"C:/Users/yoond/Documents/EPPS6356F22DataVisualization/youngseoky.github.io/Archive/sigun_bnd/seoul.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `seoul' from data source 
+  `C:\Users\yoond\Documents\EPPS6356F22DataVisualization\youngseoky.github.io\Archive\sigun_bnd\seoul.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 1 feature and 1 field
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 126.7645 ymin: 37.42899 xmax: 127.1835 ymax: 37.70146
+Geodetic CRS:  GCS_unknown</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>raster_high <span class="ot">&lt;-</span> <span class="fu">crop</span>(raster_high, <span class="fu">extent</span>(bnd))      <span class="co"># Crop unnecessaries</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">crs</span>(raster_high) <span class="ot">&lt;-</span> sp<span class="sc">::</span><span class="fu">CRS</span>(<span class="st">"+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 + towgs84=0,0,0"</span>) <span class="co"># Define coordinates</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster_high, <span class="at">col =</span> colorRamps<span class="sc">::</span><span class="fu">matlab.like</span>(<span class="at">n=</span><span class="dv">12</span>), <span class="at">main=</span><span class="st">"KDE of Emission (w/o noise)"</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bnd, <span class="at">col=</span><span class="cn">NA</span>, <span class="at">border =</span> <span class="st">"green"</span>, <span class="at">add=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="finalproject_files/figure-html/unnamed-chunk-1-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 12. Put raster on the map</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rgdal)    <span class="co"># install.packages("rgdal")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Please note that rgdal will be retired during 2023,
+plan transition to sf/stars/terra functions using GDAL and PROJ
+at your earliest convenience.
+See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution
+rgdal: version: 1.6-2, (SVN revision 1183)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.5.2, released 2022/09/02
+Path to GDAL shared files: C:/Users/yoond/AppData/Local/R/win-library/4.2/rgdal/gdal
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]
+Path to PROJ shared files: C:/Users/yoond/AppData/Local/R/win-library/4.2/rgdal/proj
+PROJ CDN enabled: FALSE
+Linking to sp version:1.5-1
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)  <span class="co"># install.packages("leaflet")</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> <span class="co"># Creates a Leaflet map widget using htmlwidget</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Base Map</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>CartoDB.Positron) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Call Boundaries</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolygons</span>(<span class="at">data =</span> bnd, <span class="at">weight =</span> <span class="dv">3</span>, <span class="at">color=</span> <span class="st">"green"</span>, <span class="at">fill =</span> <span class="cn">NA</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Add Raster Map</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addRasterImage</span>(raster_high, </span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colors =</span> <span class="fu">colorNumeric</span>(<span class="fu">c</span>(<span class="st">"green"</span>, <span class="st">"yellow"</span>,<span class="st">"orange"</span>,<span class="st">"red"</span>), </span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>                                       <span class="fu">values</span>(raster_high), <span class="at">na.color =</span> <span class="st">"transparent"</span>), <span class="at">opacity =</span> <span class="fl">0.4</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-cd7f87450e1f114e1976" style="width:100%;height:464px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cd7f87450e1f114e1976">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addPolygons","args":[[[[{"lng":[127.126667235086,127.116896093128,127.093773575142,127.082097393352,127.072138499796,127.06568165843,127.035573724568,127.034693387452,127.014509615511,127.003675356597,126.97457956,126.962942927612,126.938621908476,126.928398718144,126.902987571782,126.868348926555,126.84495516593,126.814628545067,126.823587120369,126.813012398707,126.826988512554,126.82212129818,126.806240694963,126.794425171242,126.791819276457,126.764483959768,126.793219258965,126.802581394402,126.853631853504,126.876260558767,126.88540999247,126.899643838156,126.912279860465,126.904802023715,126.924122909205,126.947564851552,126.957108104384,126.963328788871,126.958418418456,126.985905130069,126.97965838948,126.994017526049,126.99219785644,127.008663792467,127.015415384305,127.027687622676,127.032414295152,127.048631959506,127.051803590258,127.081105044415,127.095996235036,127.092694774982,127.111154977128,127.104066493418,127.117147020828,127.116664762937,127.10114378869,127.101801066075,127.11525258107,127.177154874224,127.181995419471,127.183539170251,127.163162778514,127.140614430096,127.141048445706,127.161390352977,127.158513602449,127.126667235086],"lat":[37.4686251088481,37.4586405247799,37.4560777641021,37.4413511878308,37.4422630700523,37.4289853187524,37.4390040971996,37.4641548089309,37.4548612273248,37.46772038684,37.4544128756998,37.4402804581099,37.4360285151698,37.4502126605903,37.4340675854502,37.4951078944918,37.4734723762589,37.474649441938,37.4877424193181,37.4964006565646,37.5085031017925,37.5406778979859,37.5444075857978,37.5358288886503,37.5437462533627,37.5553693950723,37.5768938235678,37.6050327512917,37.5717904912678,37.5781852295282,37.5938827054053,37.5898169213851,37.6443153582828,37.6492010157603,37.6461063020935,37.6592153861579,37.6528372305889,37.63324513836,37.6294697527005,37.6357928891525,37.6560386476758,37.6667831332636,37.6796269282846,37.6844495268041,37.701455284897,37.7009373868364,37.6918390015968,37.6940629699161,37.6858135634952,37.6961374685388,37.6890710465483,37.6485799939385,37.6425635032184,37.6216531127092,37.6178884403213,37.5940165462161,37.5760709285805,37.5595670916279,37.556759824426,37.5812007153016,37.5609924457445,37.5451703956539,37.5449914012231,37.5155891633644,37.5054071109712,37.5002014440635,37.4896655733252,37.4686251088481]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"green","weight":3,"opacity":0.5,"fill":null,"fillColor":"green","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[37.7024236221877,126.784230883251],[37.4303241786916,127.182194803722]],0.4,null,null,null]}],"limits":{"lat":[37.4289853187524,37.7024236221877],"lng":[126.764483959768,127.183539170251]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

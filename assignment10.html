@@ -292,19 +292,19 @@ Attaching package: 'zoo'</code></pre>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(M1serial <span class="ot">&lt;-</span> <span class="fu">breakpoints</span>(y <span class="sc">~</span> <span class="dv">1</span>, <span class="at">h=</span><span class="fl">0.05</span>, <span class="at">breaks=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-      0       0       0 </code></pre>
+   0.02    0.00    0.02 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two break model</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(M2serial <span class="ot">&lt;-</span> <span class="fu">breakpoints</span>(y <span class="sc">~</span> <span class="dv">1</span>, <span class="at">h=</span><span class="fl">0.05</span>, <span class="at">breaks=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.06    0.00    0.06 </code></pre>
+   0.09    0.00    0.09 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three break model</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(M3serial <span class="ot">&lt;-</span> <span class="fu">breakpoints</span>(y <span class="sc">~</span> <span class="dv">1</span>, <span class="at">h=</span><span class="fl">0.05</span>, <span class="at">breaks=</span><span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   0.12    0.00    0.12 </code></pre>
+   0.14    0.00    0.14 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the results</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(M1serial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
