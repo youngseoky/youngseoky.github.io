@@ -1,0 +1,112 @@
+---
+title: "Final Project"
+---
+
+Final Project: Mapping Toxic Chemical Emission in Seoul, Korea
+
+```{r}
+# EPPS 6356 - Data Visualization
+# Pyung Kim et al.
+
+rm(list=ls())
+
+# 1. Data Setting
+load("C:/Users/yoond/Documents/EPPS6356F22DataVisualization/youngseoky.github.io/Archive/toxic.rdata")
+library(sf)    # install.packages("sf") 
+
+# 2. Read Seoul grid data (shp file)
+grid <- st_read("C:/Users/yoond/Documents/EPPS6356F22DataVisualization/youngseoky.github.io/Archive/sigun_grid/seoul.shp")  
+emission <-st_join(emission, grid, join = st_intersects)
+
+# 3. Calculate average emission by grid in Seuol, South Korea 
+kde_high <- aggregate(emission$py, by=list(emission$ID), mean)
+colnames(kde_high) <- c("ID", "avg_emission")   # Change column names
+
+# 4. Merge GRID and Average Emission
+kde_high <- merge(grid, kde_high,  by="ID")   # Merge by ID
+library(ggplot2) # install.packages("ggplot2")
+library(dplyr)   # install.packages("dplyr")
+
+
+# 5. Emission map by grid in Seoul
+## Without Fill
+kde_high %>% ggplot(aes(fill = )) + 
+  geom_sf()
+
+kde_high %>% ggplot(aes(fill = avg_emission)) + 
+  geom_sf() + 
+  scale_fill_gradient(low = "white", high = "red")
+
+#################################################################
+
+# 6. Change "sf" to "sf"
+## sf is dataframe. so, it is easy to calculate.
+## sp is shape, which is easy to create maps
+
+library(sp) # install.packages("sp")
+kde_high_sp <- as(st_geometry(kde_high), "Spatial")    # sf => sp
+
+
+# 7. Set corners to draw maps
+x <- coordinates(kde_high_sp)[,1]
+y <- coordinates(kde_high_sp)[,2] 
+
+l1 <- bbox(kde_high_sp)[1,1] - (bbox(kde_high_sp)[1,1]*0.0001)
+l2 <- bbox(kde_high_sp)[1,2] + (bbox(kde_high_sp)[1,2]*0.0001)
+l3 <- bbox(kde_high_sp)[2,1] - (bbox(kde_high_sp)[2,1]*0.0001)
+l4 <- bbox(kde_high_sp)[2,2] + (bbox(kde_high_sp)[1,1]*0.0001)
+
+# 8. Draw windows
+library(spatstat)  # install.packages("spatstat")
+Window <- owin(xrange=c(l1,l2), yrange=c(l3,l4)) # Create window
+plot(Window)         # Check Boundaries
+rm(list = c("kde_high_sp", "emission", "l1", "l2", "l3", "l4")) # Clean variables
+
+# 9. Draw density Graph
+p <- ppp(x, y, window=Window) # Creates an object of class "ppp" representing a point pattern dataset in the two-dimensional plane.
+Density <- density.ppp(p, weights=kde_high$avg_emission, # Compute a kernel smoothed intensity function from a point pattern.
+                 sigma = bw.diggle(p), # The smoothing bandwidth
+                 kernel = 'gaussian')  
+plot(Density, main="KDE of Emission (with noise)")
+rm(list = c("x", "y", "Window","p")) # Clean variables
+
+## In statistics, kernel density estimation (KDE) is the application of kernel smoothing for probability density estimation, 
+## i.e., a non-parametric method to estimate the probability density function of a random variable based on kernels as weights. 
+## KDE answers a fundamental data smoothing problem where inferences about the population are made, based on a finite data sample. 
+## In some fields such as signal processing and econometrics it is also termed the Parzen???Rosenblatt window method, 
+## after Emanuel Parzen and Murray Rosenblatt, who are usually credited with independently creating it in its current form.
+## One of the famous applications of kernel density estimation is in estimating the class-conditional marginal densities of data when using a naive Bayes classifier,
+## which can improve its prediction accuracy.
+
+
+
+# 10. Raster Map (below explanation on KDE came from Wikipedia)
+
+Density[Density < quantile(Density)[4] + (quantile(Density)[4]*0.1)] <- NA   # Erase Noise
+library(raster)      #  install.packages("raster")
+library(rworldmap)
+raster_high <- raster(Density)  # Change by raster
+plot(raster_high)
+plot(raster_high, col = colorRamps::matlab.like(n=12),  main="KDE of Emission (w/o noise)")
+
+# 11. Map grooming
+## Load Seoul shp file
+bnd <- st_read("C:/Users/yoond/Documents/EPPS6356F22DataVisualization/youngseoky.github.io/Archive/sigun_bnd/seoul.shp")
+raster_high <- crop(raster_high, extent(bnd))      # Crop unnecessaries
+crs(raster_high) <- sp::CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 + towgs84=0,0,0") # Define coordinates
+plot(raster_high, col = colorRamps::matlab.like(n=12), main="KDE of Emission (w/o noise)")
+plot(bnd, col=NA, border = "green", add=TRUE)
+
+## 12. Put raster on the map
+library(rgdal)    # install.packages("rgdal")
+library(leaflet)  # install.packages("leaflet")
+leaflet() %>% # Creates a Leaflet map widget using htmlwidget
+  #Base Map
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  #Call Boundaries
+  addPolygons(data = bnd, weight = 3, color= "green", fill = NA) %>% 
+  #Add Raster Map
+  addRasterImage(raster_high, 
+                 colors = colorNumeric(c("green", "yellow","orange","red"), 
+                                       values(raster_high), na.color = "transparent"), opacity = 0.4)  
+```
